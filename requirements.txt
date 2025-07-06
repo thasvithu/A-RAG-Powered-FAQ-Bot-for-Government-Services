@@ -1,0 +1,6 @@
+# LangChain and Ecosystem
+langchain             # Core LangChain library for building LLM apps`
+langchain-community   # Community extensions for LangChain (new imports)
+
+# PDF Processing
+pypdf                 # For loading and processing PDF documents
