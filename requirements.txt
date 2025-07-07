@@ -4,3 +4,6 @@ langchain-community   # Community extensions for LangChain (new imports)
 
 # PDF Processing
 pypdf                 # For loading and processing PDF documents
+
+# Embedding Models
+sentence-transformers # HuggingFace Sentence Transformers for embeddings

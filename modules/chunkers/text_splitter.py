@@ -19,4 +19,5 @@ def split_text(documents: List[Document], chunk_size=1000, chunk_overlap=100):
         chunk_overlap=chunk_overlap
     )
     chunks = splitter.split_documents(documents) 
+    
     return chunks
