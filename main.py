@@ -1,6 +1,6 @@
-from modules.loaders.pdf_loader import load_pdf
-from modules.chunkers.text_splitter import split_text
-from modules.embeddings.embed_store import embed_documents
+from modules.pdf_loader import load_pdf
+from modules.text_splitter import split_text
+from modules.embed_store import embed_documents
 
 pdf_text = load_pdf("./data/Passport1.pdf")
 

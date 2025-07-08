@@ -7,3 +7,8 @@ pypdf                 # For loading and processing PDF documents
 
 # Embedding Models
 sentence-transformers # HuggingFace Sentence Transformers for embeddings
+langchain-huggingface # Modern wrapper for HuggingFace embeddings in LangChain
+
+# Vector Database
+chromadb              # Chroma vector store for embedding search and storage
+langchain-chroma      # LangChain wrapper for Chroma vector store
