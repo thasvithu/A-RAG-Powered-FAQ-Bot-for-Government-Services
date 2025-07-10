@@ -8,7 +8,11 @@ pypdf                 # For loading and processing PDF documents
 # Embedding Models
 sentence-transformers # HuggingFace Sentence Transformers for embeddings
 langchain-huggingface # Modern wrapper for HuggingFace embeddings in LangChain
+cohere               # Cohere API for text embeddings
 
 # Vector Database
 chromadb              # Chroma vector store for embedding search and storage
 langchain-chroma      # LangChain wrapper for Chroma vector store
+
+# Google Gemini (Generative AI)
+google-generativeai   # Google Gemini API for generative AI capabilities
