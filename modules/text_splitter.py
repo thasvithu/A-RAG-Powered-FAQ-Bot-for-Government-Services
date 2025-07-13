@@ -2,7 +2,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from typing import List
 from langchain_core.documents import Document
 
-def split_text(documents: List[Document], chunk_size=1000, chunk_overlap=100):
+def split_text(documents: List[Document], chunk_size=512, chunk_overlap=64):
     """
     Split a list of LangChain Document objects into smaller chunks.
 
@@ -16,7 +16,8 @@ def split_text(documents: List[Document], chunk_size=1000, chunk_overlap=100):
     """
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap
+        chunk_overlap=chunk_overlap,
+        separators=["\n\n", "\n", ".", " ", ""]
     )
     chunks = splitter.split_documents(documents) 
     

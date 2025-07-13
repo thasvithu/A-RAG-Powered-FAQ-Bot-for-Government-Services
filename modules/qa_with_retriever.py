@@ -19,7 +19,9 @@ def answer_query_with_gemini(query: str) -> str:
 
     context = "\n\n".join([doc.page_content for doc in docs])
 
-    prompt = f"""You are a multilingual assistant. Answer the question in the same language it is asked.
+    prompt = f"""You're a helpful government FAQ assistant for Sri Lankan citizens. Use the context below to answer the user's question clearly in the same language (Tamil/Sinhala/English). Be concise and official.
+
+    If unsure, say you don't know. Don't make up answers.
     
     Context:
     {context}

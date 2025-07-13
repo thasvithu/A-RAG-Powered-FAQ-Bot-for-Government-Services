@@ -10,10 +10,10 @@ def get_retriever(persist_directory="./chroma_store", model_name="embed-multilin
         user_agent="langchain"  # Optional user agent for tracking
     )
 
-    vectorstore = Chroma(
+    vectorstore = Chroma(   
         persist_directory=persist_directory,
         embedding_function=embedding
         
     )
-
+    
     return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 5})
