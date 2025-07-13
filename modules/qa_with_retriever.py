@@ -13,24 +13,38 @@ retriever = get_retriever(
 )
 
 def answer_query_with_gemini(query: str) -> str:
+    # Step 1: Retrieve relevant context
     docs = retriever.invoke(query)
     if not docs:
-        return "No relevant documents found."
+        return "No relevant documents found for your question."
 
-    context = "\n\n".join([doc.page_content for doc in docs])
+    context = "\n\n".join(doc.page_content for doc in docs)
 
-    prompt = f"""You're a helpful government FAQ assistant for Sri Lankan citizens. Use the context below to answer the user's question clearly in the same language (Tamil/Sinhala/English). Be concise and official.
+    # Step 2: Multilingual and bullet-point focused prompt
+    prompt = f"""
+    You are a trusted virtual assistant for Sri Lankan government services.
 
-    If unsure, say you don't know. Don't make up answers.
-    
-    Context:
+    Your job is to help users in **Tamil**, **Sinhala**, or **English**, depending on the language of the question. Do NOT translate. Reply in the same language.
+
+    Use the following context from official documents to answer the user's question. 
+
+    --- CONTEXT START ---
     {context}
+    --- CONTEXT END ---
 
-    Question:
+    --- USER QUESTION ---
     {query}
-    
-    Please answer in clear, short bullet points or numbered steps, suitable for easy reading by a general user.
+    --- END ---
+
+    Guidelines:
+    - ✅ Respond only using the given context.
+    - ❌ If not found in context, say "I'm not sure based on the available information."
+    - 🧾 Format the answer in **clear bullet points or numbered steps**.
+    - 🔁 Do not repeat the question.
+
+    Answer:
     """
+
     try:
         response = gemini_model.generate_content(prompt)
         return response.text.strip()
