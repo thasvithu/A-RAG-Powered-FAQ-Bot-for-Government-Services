@@ -28,6 +28,8 @@ def answer_query_with_gemini(query: str) -> str:
 
     Question:
     {query}
+    
+    Please answer in clear, short bullet points or numbered steps, suitable for easy reading by a general user.
     """
     try:
         response = gemini_model.generate_content(prompt)
