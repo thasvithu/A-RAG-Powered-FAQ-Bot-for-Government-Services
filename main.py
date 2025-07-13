@@ -4,7 +4,7 @@ from modules.embed_store import embed_and_store_documents
 from modules.retriever import get_retriever
 from modules.qa_with_retriever import answer_query_with_gemini
 
-"""
+
 
 pdf_text = load_pdf("./data/Passport1.pdf")
 
@@ -21,10 +21,10 @@ print ("\n --------------------------------------\n")
 
 # Embedding and storing the documents
 print("Embedding and storing documents...")
-vectorstore = embed_and_store_documents(chunks, persist_directory="./chroma_store", model_name="all-MiniLM-L6-v2")
+vectorstore = embed_and_store_documents(chunks, persist_directory="./chroma_store", model_name="embed-multilingual-v3.0")
 print("Documents embedded and stored successfully.")
 
-"""
+
 
 query = "How to apply for a passport in Sri Lanka?"
 response = answer_query_with_gemini(query)

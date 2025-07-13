@@ -9,6 +9,7 @@ pypdf                 # For loading and processing PDF documents
 sentence-transformers # HuggingFace Sentence Transformers for embeddings
 langchain-huggingface # Modern wrapper for HuggingFace embeddings in LangChain
 cohere               # Cohere API for text embeddings
+langchain-cohere      # LangChain wrapper for Cohere embeddings
 
 # Vector Database
 chromadb              # Chroma vector store for embedding search and storage

@@ -1,27 +1,29 @@
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import CohereEmbeddings
 from langchain_core.documents import Document
 from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def embed_and_store_documents(
     documents: List[Document],
     persist_directory: str = "./chroma_store",
-    model_name: str = "all-MiniLM-L6-v2"
+    model_name: str = "embed-multilingual-v3.0"
 ):
-    """
-    Embed and store documents in Chroma vector store without overwriting existing data.
-    """
-    embedding_model = HuggingFaceEmbeddings(model_name=model_name)
+    embedding_model = CohereEmbeddings(
+        cohere_api_key=os.getenv("COHERE_API_KEY"),
+        model=model_name,
+        user_agent="langchain" # Optional user agent for tracking
+    )
 
-    # Load or create Chroma vectorstore
     vectorstore = Chroma(
         persist_directory=persist_directory,
         embedding_function=embedding_model
     )
 
-    # Add new documents (append to existing)
     vectorstore.add_documents(documents)
-
-    print(f"Stored {len(documents)} new documents at {persist_directory}")
-
+    print(f"✅ Stored {len(documents)} documents.")
+    
     return vectorstore
