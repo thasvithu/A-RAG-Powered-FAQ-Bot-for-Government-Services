@@ -48,5 +48,5 @@ def answer_query_with_gemini(query: str) -> str:
     try:
         response = gemini_model.generate_content(prompt)
         return response.text.strip()
-    except Exception as e:
+    except Exception as e:  
         return f"Gemini API error: {e}"
