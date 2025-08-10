@@ -78,7 +78,7 @@ streamlit run app.py
 ```
 Open the provided local URL. Ask questions such as:
 - Sinhala: ශ්‍රී ලංකාවේ පැස්පෝට් ලබාගැනීමේ ක්‍රියාවලිය මොකක්ද?
-- Tamil: இலங்கையில் பாஸ்போர்ட் பெற எந்த படிகள்?
+- Tamil: இலங்கையில் கடவுச்சீட்டு பெறுவதற்கான படிகள் என்ன?
 - English: What documents are needed for a Sri Lankan passport?
 
 ## ⚙️ Configuration (current defaults)
