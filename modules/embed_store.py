@@ -15,7 +15,7 @@ def embed_and_store_documents(
     embedding_model = CohereEmbeddings(
         cohere_api_key=os.getenv("COHERE_API_KEY"),
         model=model_name,
-        user_agent="langchain" # Optional user agent for tracking
+        user_agent="langchain" 
     )
 
     vectorstore = Chroma(
