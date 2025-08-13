@@ -48,3 +48,6 @@ def process_pdf(pdf_path):
 
 # Example usage
 process_pdf("./data/Passport1.pdf")
+process_pdf("./data/nic_form.pdf")
+process_pdf("./data/driving_application.pdf")
+process_pdf("./data/registration-of-births-marriages-a-deaths-.pdf")
